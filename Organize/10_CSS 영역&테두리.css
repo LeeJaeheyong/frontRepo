@@ -1,0 +1,28 @@
+.border-content{
+    width : 100px;
+    height : 100px;
+}
+
+.border-style-1{
+    border-style:dotted;
+    border-bottom-right-radius: 30px;
+    box-shadow : 5px 5px 10px 10px lightblue;
+}
+
+.border-style-2{
+    border: 1px solid black;
+    margin-top: 30px;
+    border-color: aqua;
+    border-top : dashed;
+    border-right : double;
+    border-bottom : inset;
+    border-left : ridge;
+    border-top-left-radius : 20px;
+    border-top-right-radius : 40px;
+}
+
+.border-style-3 {
+    margin-top: 30px;
+    border : 1px solid brown;
+    border-radius : 50px;
+}

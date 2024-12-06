@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            background-color: #87ceeb;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items:center ;
+        }
+        .loading-container{
+            background-color: #f0f0f0;
+            width: 50%;
+            height: 150px;
+            border-radius: 50px;
+        }
+        .loading-bar{
+            border-radius: 50px;
+            height: 150px;
+            background-color: aquamarine;
+            animation: loading 5s infinite;
+        }
+
+        @keyframes loading{
+            0%{
+                width: 0px;
+            }
+            100%{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-container">
+        <div class="loading-bar"></div>
+    </div>
+</body>
+</html>

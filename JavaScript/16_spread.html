@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr1 = [10,20,{name:"이재형",age:19}];
+        const arr2 = [300, 400, {name:"홍길동",age:22}];
+        //    mergedArr = [10,20,{name:"이재형",age:19},300, 400, {name:"홍길동",age:22}]
+        const mergedArr = [...arr1,...arr2];
+        mergedArr[0] = 999;
+        mergedArr[2].name = "Java";
+        mergedArr[3] = 777;
+        console.log("원본 arr : ", arr1)
+        console.log("원본 arr2 : ", arr2)
+        console.log("병합된 배열 mergedArr : ", mergedArr)
+        // console.log("원본 arrA : "+ arr1)
+        // console.log(`원본 arr1 : ${arr1}`)
+        // console.log(`원본 arr2 : ${arr2}`)
+        // console.log(`병합된 배열 mergedArr : ${mergedArr}`)
+    </script>
+</body>
+</html>

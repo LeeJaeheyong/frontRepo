@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="Q1()">.....</button>
+    
+</body>
+</html>
+<script>
+
+    function getUserData(callback) {
+        setTimeout(() => {
+            const userData = { name: "John" };
+            callback(userData);
+        }, 1000);
+    }
+    getUserData((data)=>{
+        console.log(data.name)
+    })
+    function fetchData() {
+    return new Promise((resolve, reject) => {
+    setTimeout(() => {
+        const data = "이것은 데이터입니다.";
+      // 아래의 조건을 수정하여 성공 또는 실패 상황을 테스트하세요.
+        const success = false;
+        if (success) {
+        resolve(data);
+        } else {
+        reject("데이터를 가져오는데 실패했습니다.");
+        }
+    }, 1000);
+    });
+}
+    fetchData()
+    .then((result)=>{
+        console.log(result)
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+    
+    function Q3(){
+        return new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                const num = Math.floor(Math.random()*4);
+                if(num%2===0){
+                    resolve();
+                }else {
+                    reject();
+                }
+            },1000)
+        })
+    }
+    Q3()
+    .then(()=>{
+        console.log("짝수입니다")
+    })
+    .catch(()=>{
+        console.log("홀수입니다")
+    })
+
+    function downloadFile() {
+        return new Promise((resolve, reject) => {
+        setTimeout(() => {
+        // 아래의 조건을 수정하여 성공 또는 실패 상황을 테스트하세요.
+        const success = false;
+        if (success) {
+            resolve("파일 다운로드 완료");
+        } else {
+            reject("파일 다운로드에 실패했습니다.");
+        }
+        }, 2000);
+    });
+}
+
+async function download() {
+    try{
+        const a = await downloadFile();
+        console.log(a)
+    } 
+    catch(err){
+        console.log(err)
+    }
+}
+download();
+
+    function Q5(addr){
+        
+        const users = {
+            "user@example.com": { name: "사용자1", age: 30 },
+            "anotheruser@example.com": { name: "사용자2", age: 25 }
+        };
+        
+        return new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                if(addr==="user@example.com"){
+                    resolve(users["user@example.com"])
+                }else if (addr === "anotheruser@example.com"){
+                    resolve(users["anotheruser@example.com"])
+                }else{
+                    reject("왜 안됨")
+                }
+            },1000)
+        })
+    }
+
+    async function solution() {
+        try{
+        const result = await Q5("anotheruser@example.com")
+        console.log(result)
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+    solution();
+</script>

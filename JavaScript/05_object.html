@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        let book = {
+            title : "IT엔지니어를 위한 네트워크",
+            author : "고재성",
+            year : 1999,
+            genre : "science"
+        }
+
+        let keys = Object.keys(book);
+        console.log(keys);
+
+        for(let key in book){
+            console.log(key);
+            console.log(book.key);
+        }
+
+        let values = Object.values(book);
+        console.log(values);
+
+        let keyValue = Object.entries(book);
+        console.log(keyValue);
+        // console.log(book);
+        // console.log(book.title);
+        // console.log(book["title"]);
+        // book.page = 785; // 추가
+        // book.year = 1500; // 수정(덮어쓰기)
+        // console.log(book);
+
+        // delete book.year; //삭제
+        // console.log(book);
+
+    </script>
+</body>
+</html>

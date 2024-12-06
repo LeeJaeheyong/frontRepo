@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>템플릿 리터럴</h3>
+    <script>
+        const name = "이재형"
+        const age = 19;
+
+        const introduce = `안녕하세요 제이름은 ${name}이며 나이는 ${age}세 입니다.`;
+        console.log(introduce);
+
+        //멀티라인 가능
+        const multiLine = `        이렇게
+        여러줄
+        사용
+        가능`;
+        console.log(multiLine);
+
+        // Tagged Template Literals
+        const introduceNew = introduceNewTag`안녕하세요 제이름은 ${name}이며 나이는 ${age}세 입니다.`;
+
+        function introduceNewTag(strings, nameExp, ageExp){
+            console.log(strings);
+            console.log(nameExp);
+            console.log(ageExp);
+        }
+
+        //연산 및 함수 호출
+        const num1 = 10;
+        const num2 = 20;
+
+        const result = `두 수의 합은 ${num1+num2} 입니다`
+        console.log(result);
+
+        function add(num1,num2){
+            return num1+num2;
+        }
+
+        console.log(`두 수의 합은 : ${add(num1,num2)} 입니다`)
+
+    </script>
+</body>
+</html>

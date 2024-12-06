@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function add(num1,num2){
+            let result =num1+num2;
+            return result;
+    }
+        function sub(num1,num2){
+            let result =num1-num2;
+            return result;
+    }
+        function mul(num1,num2){
+            let result =num1*num2;
+            return result;
+    }
+        function div(num1,num2){
+            let result =num1/num2;
+            return result;
+    }
+    console.log(add(3,5));
+    console.log(sub(3,5));
+    console.log(mul(3,6));
+    console.log(div(3,6));
+
+    function calc(){
+        const num1 =parseInt( prompt("첫번째 숫자를 입력하세요 : "));
+        const num2 =parseInt( prompt("두번쨰 숫자를 입력하세요 : "));
+        const operation = prompt("원하는 연산을 선택하세요 (+, -, *, /) : ");
+
+        let result;
+        switch(operation){
+            case "+" :
+                result = add(num1,num2);
+                break;
+            case "-" :
+                result = sub(num1,num2);
+                break;
+            case "*" :
+                result = mul(num1,num2);
+                break;
+            case "/" : 
+                result = div(num1,num2);
+                break;
+            default : 
+                console.log("잘못 입력하셨습니다.");
+        }
+
+        console.log("결과는 " +result+ " 입니다.");
+    }
+    calc();
+
+
+    function outer(){
+        let x= 10;
+
+        function inner(){
+            console.log("inner 함수 : "+ x);
+        }
+        inner();
+    }
+
+    outer();
+
+
+    // 7. 재귀 함수(재귀 질의)
+    function countDown(cnt){
+        if(cnt===0){
+            console.log("cnt가 0이되어 종료합니다.");
+        } else{
+            console.log("cnt : "+cnt);
+            // cnt--;
+        countDown(cnt-1);
+        }
+    }
+    countDown(5);
+
+    //8. 콜백 함수
+    function first(callback){
+        console.log(callback);
+        if(typeof callback==='function'){
+        callback();
+        }
+    }
+    first(function(){
+        console.log("함수 던지는중");
+    });
+
+
+
+
+    // function test1(){
+    //     setTimeout(()=>{
+    //     console.log("test1 함수입니다.");
+    //     },2000);
+    // }
+    // function test2(){
+    //     console.log("test2 함수입니다.");
+    // }
+
+    // test1();
+    // test2();
+
+    function test1(callback){
+        setTimeout(() => {
+            console.log("test1 함수입니다.");
+            callback();
+        }, 2000);
+    }
+    test1(function(){
+        console.log("test2 함수입니다.");
+    })
+    </script>
+</body>
+</html>

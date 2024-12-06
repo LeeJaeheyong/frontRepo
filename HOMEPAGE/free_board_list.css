@@ -1,0 +1,36 @@
+table{
+    width: 1800px;
+    padding: 10px;
+    height: 100px;
+    display: inline-table;
+    border: 1px solid gray;
+    border-collapse: collapse;
+    
+}
+thead{
+    background-color: black;
+    color: white;
+    text-align: left;
+}
+th{
+    padding: 10px;
+    border: 1px solid rgb(204, 203, 203);
+    border-style:inherit;
+}
+
+td{
+    padding: 10px;
+    border: 1px solid rgb(204, 203, 203);
+}
+button{
+    display: block;
+    margin-right: 70px;
+    margin-bottom: 10px;
+    background-color: black;
+    color: white;
+    height: 40px;
+    width: 80px;
+    border-radius: 3px;
+    float: right;
+    
+}

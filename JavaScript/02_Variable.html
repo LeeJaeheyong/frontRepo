@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(a);
+        var a ="var 변수";
+        let b ="let 변수";
+        const c ="const 변수";
+
+        b= "수정됨";
+
+        console.log(a);
+        console.log(b);
+        console.log(c);
+
+        var a = 10;
+        console.log(a);
+
+        function referFunc(){
+            var funcVar = 1;
+            let funcLet = 2;
+            const funcConst = 3;
+            if(true){
+                var funcVar = 10;
+                let funcLet = 20;
+                const funcConst = 30;
+                console.log(funcVar,funcLet,funcConst);
+            }
+            console.log(funcVar,funcLet,funcConst);
+        }
+        referFunc();
+
+
+        let age = 19; //number
+        let name = "이재형"; //string
+        let flag = true; //boolean
+        let check; //undefined
+        let hobby = ["잠자기", "먹기", "걷기"]; //object
+        let info = { //object
+            name : "홍길동",
+            age : 22,
+            flag : false
+        }
+        console.log(age);
+        console.log(name);
+        console.log(flag);
+        console.log(check);
+        console.log(hobby);
+        console.log(info.name);
+
+        let big = BigInt("68512568454515346845564531465458415234546545645644566663455131153135135135");
+        console.log(big);
+
+        const num1 = 10; //number
+        const num2 = '10'; //string
+        // == -> 값만 비교
+        // === -> 값+타입 비교
+
+        console.log(typeof num1);
+        console.log(typeof num2);
+        if(num1 === num2){
+            console.log("같음");
+        } else{
+            console.log("틀림");
+        }
+
+    </script>
+</body>
+</html>

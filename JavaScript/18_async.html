@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // console.log("Hello,World!");
+
+        // setTimeout(() => {
+        //     console.log(`Hello, Async!`);
+        // }, 5000);
+
+        // console.log(`end`);
+        
+        // function getUserData(callback){
+        //     callback('a');
+        // }
+        // getUserData((data)=>{
+        //                 console.log(data);  
+        //             });
+
+        //1. printMessage 함수 작성
+        //2. 첫번째 매개변수로 "Hello, JavaScript!!" 메세지가 전달됨
+        //3. 두번째 매개변수로 함수가 전달됨
+        //4. 콜백 함수 호출 시 "Hello, JavaScript!!"가 콘솔로그에 출력
+
+        // function printMessage(strings,callback){
+        //     callback(strings);
+        // }
+        // printMessage("Hello, JavaScript!!", (strings)=>{
+        //     console.log(strings)
+        // });
+
+
+        // let numA = 10;
+        // let numB = 20;
+
+        // function addAndCallback(num1,num2,callback){
+        //     callback(num1,num2);
+        // }
+        // addAndCallback(numA,numB,(num1,num2)=>{
+        //     let result = num1+num2;
+        //     console.log(`덧셈 결과 : ${result}`);
+        // })
+
+        // function promisePrintMessage(){
+        //     return new Promise((resolve,reject)=>{
+        //         const random = Math.round(Math.random()+1);
+        //         if(random === 1){
+        //             resolve("작업 성공!")
+        //         } else {
+        //             reject("작업 실패!")
+        //         }
+        //     })
+        // }
+
+        // promisePrintMessage()
+        //     .then((result) =>{ //작업이 성공했을 때 실행할 코드
+        //         console.log(result);
+        //         console.log(`Hello! JavaScript!`);
+                
+        //     })
+        //     .catch((err)=>{
+        //         console.log(err);
+        //     })
+
+        // function laterMessage(){
+        //     return new Promise((resolve,reject) =>{
+        //         setTimeout(()=>{
+        //             resolve("성공했습니다!");
+        //             // reject("실패했습니다");
+        //         },5000)
+        //         setTimeout(()=>{
+        //             // resolve("성공했습니다!");
+        //             reject("실패했습니다");
+        //         },3000)
+        //     })
+        // }
+        // laterMessage()
+        //     .then((result)=>{
+        //         console.log(result);
+                
+        //     })
+        //     .catch((err)=>{
+        //         console.log(err);
+        //     })
+
+        // function addNumber(num1,num2){
+        //     return new Promise((resolve,reject)=>{
+        //         if(typeof num1==="number"&&typeof num2==="number"){
+        //             resolve(num1+num2);
+        //         } else{
+        //             reject("숫자를 입력해주세요.")
+        //         }
+        //     })
+        // }
+
+        // addNumber(10,"a")
+        //     .then(result=>console.log(result))
+        //     .catch((err)=>{
+        //         console.log(err)
+        //     })
+
+        function getUserData(){
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    const userData = {name : "Ailce", age:25}
+                    resolve(userData);
+                },1000)
+            })
+        }
+        function getUserPosts(user){
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    resolve(["Post 1","Post 2"]);
+                },1000)
+            })
+        }
+        function getPostComments(post){
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    resolve(["Comment 1","Comment 2"]);
+                },1000)
+            })
+        }
+        // async function fetchData(){
+        //     try{
+        //         const getUser = await getUserData();
+        //         const getPost = await getUserPosts();
+        //         const getComments = await getPostComments();
+        //         console.log(getUser);
+        //         console.log(getPost);
+        //         console.log(getComments);
+
+        //     } catch(error){
+        //         console.log(error)
+        //     }
+        // }
+        // fetchData();
+        // getUserData -> getUserPosts -> getPostComments
+        getUserData()
+        .then(user=>{
+            console.log(user)
+            return getUserPosts(user);
+        })
+        .then(posts=>{
+            console.log(posts);
+            return getPostComments(posts);
+        })
+        .then(comments => {
+            console.log(comments);
+        })
+        .catch(error =>{
+            console.log(error);
+        })
+
+
+    </script>
+</body>
+</html>

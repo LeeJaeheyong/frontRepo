@@ -1,0 +1,85 @@
+/*
+    전체 선택자 
+    *{
+        color:chartreuse;
+    }
+*/
+
+/*
+    태그 선택자
+    p{
+        color: blue;
+    }
+*/
+/* 
+    클래스 선택자
+    .color_blue{
+        color: blue;
+    }
+    .font_size_small{
+        font-size: 10px;
+    } 
+*/
+
+/*
+        아이디 선택자
+        #color_aqua{
+            color: aqua;
+        }
+*/
+
+/* 
+    속성 선택자
+    input[type=text]{
+        background-color: blue;
+    }
+
+    .btn[type=reset]{
+        background-color: coral;
+    } 
+*/
+
+/* 
+    그룹 선택자
+    .color_blue, .btn{
+        color: red;
+    }
+*/
+/* 
+    자식 선택자
+    div > h2{
+        color: crimson;
+    }
+*/
+
+/* 
+    후손 선택자(자식 포함)
+    div h2 {
+        color: red;
+    }
+*/
+
+/* 
+동위 선택자(+는 바로 뒤 한개만 적용, ~는 뒤에있는 모든 항목 적용)
+h2+ul{
+    color: dodgerblue;
+}
+h2~ul{
+    color: brown;
+}
+*/
+
+/*
+    반응 선택자() 
+    .button:hover{
+    background-color: blue;
+    }
+
+    .button:active{
+        background-color: aquamarine;
+    }
+*/
+
+.last_selector:focus {
+    background-color: magenta;
+}

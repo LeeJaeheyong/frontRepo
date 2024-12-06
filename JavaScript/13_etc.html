@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            margin: 5px;
+            padding: 5px;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <h3>HTMLCollection vs NodeList</h3>
+    <br>
+    b3
+    <h3>HTMLCollection</h3>
+    <ul>
+        <li>정의 : HTML 요소들의 동적 컬렉션</li>
+        <li>생성 방식 : getElementsByTagname, getElementsByClassName</li>
+        <li>동적/정적 : 동적(DOM 변경시 실시간으로 업데이트됨)</li>
+    </ul>
+
+    <h3>NodeList</h3>
+    <ul>
+        <li>정의 : DOM에서 모든 Node 객체(텍스트, 속성 등)를 모아둔 집합</li>
+        <li>생성 방식 : getElementsByName, querySelector</li>
+        <li>동적/정적 : 정적</li>
+    </ul>
+
+    <hr>
+    <div class="test-div"></div>
+    <div class="test-div"></div>
+    <button id="add-div">추가</button>
+    <button id="log-ele">로그 확인</button>
+
+    <script>
+        let htmlCollection  = document.getElementsByClassName("test-div");
+        let nodeList =document.querySelectorAll(".test-div");
+        let addDiv = document.getElementById("add-div");
+        let logEle = document.getElementById("log-ele");
+
+        addDiv.addEventListener("click",function(){
+            let newDiv = document.createElement("div");
+            newDiv.className = "test-div";
+            newDiv.textContent = "newDiv";
+            document.body.appendChild(newDiv);
+        })
+
+        logEle.addEventListener("click",function(){
+            console.log("HTMLCollection(동적)");
+            console.log(htmlCollection);
+
+            console.log("NodeList(정적)");
+            console.log(nodeList);
+            
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>window 객체 : 자바스크립트 최상위 객체</p>
+    <h3>window.open</h3>
+    <button onclick="windowTest1()">네이버로 가기</button>
+    <script>
+        function windowTest1(){
+            // window.open("https://www.naver.com");
+            //                   주소          ,  이름     ,    조건
+            window.open("https://www.naver.com", "네이버임","width=500px, height=500px");
+        }
+    </script>
+
+    <hr>
+    <h3>타이머 관련 함수</h3>
+    <ol>
+        <li>setTimeout</li>
+        <li>setInterval</li>
+    </ol>
+    <button onclick="windowTest2()">클릭</button>
+    <script>
+        function windowTest2(){
+            // setTimeout(()=>{
+            //     alert("2초가 지났습니다.");
+            // }, 2000)
+
+            const newNaver = window.open("https://www.naver.com");
+            newNaver.alert("안녕하세요")
+            setTimeout(function(){
+                newNaver.close();
+            },3000);
+        }
+    </script>
+
+    <button onclick="windowTest3()">인터벌</button>
+    <div id="current-date"></div>
+
+    <script>
+        function windowTest3(){
+            const currentDate = document.getElementById("current=date");
+
+            const intervalDate = setInterval(() => {
+                                currentDate.textContent = new Date();
+                            }, 1000);
+
+            setTimeout(function(){
+                clearInterval(intervalDate);
+            }, 5000)
+        }
+    </script>
+
+    <h3>BOM(Browser Object Model)</h3>
+    <ol>
+        <li>loaction</li>
+        <li>screen</li>
+        <li>navigator</li>
+        <li>history</li>
+    </ol>
+
+    <button onclick="location.href='https://naver.com'">버튼</button>
+
+    <button onclick="console.log(screen)">스크린</button>
+    <button onclick="console.log(navigator)">네이게이터</button>
+    <button onclick="console.log(history)">히스토리</button>
+</body>
+</html>

@@ -1,0 +1,99 @@
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container */
+        .signup-container {
+            background: #ffffff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* Logo */
+        .logo img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        /* Form */
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            text-align: left;
+        }
+
+        /* Label 스타일 */
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin-left: 5px;
+            position: relative;
+            display: inline-block;
+        }
+
+        label::after {
+            content: "*";
+            color: red;
+            margin-left: 2px;
+            font-size: 12px;
+        }
+
+        /* Input */
+        input {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px 12px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #0078ff;
+            box-shadow: 0 0 4px rgba(0, 120, 255, 0.4);
+        }
+
+        input::placeholder {
+            color: #aaa;
+        }
+
+        /* Button */
+        .submit-btn {
+            background-color: #0078ff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #005fcc;
+        }

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0px;
+        }
+        /* header 태그 */
+        header{
+            background-color: #333;
+            color: #fff;
+            height: 130px;
+            margin: 0px;
+            padding-top: 50px;
+        }
+        header > h1{
+            margin: 0px;
+            text-align: center;
+        }
+        header > div {
+            text-align: right;
+            padding-right: 20px;
+            padding-top: 35px;
+            
+        }
+        header > div > a{
+            color: #fff;
+            text-decoration: none;
+        }
+        .header-login{
+            padding-right: 10px;
+        }
+        header > div > a:hover{
+            text-decoration: underline;
+        }
+        /* nav 태그 */
+        nav{
+            background-color: #555;
+            color: #fff;
+            margin: 0px;
+            padding-top: 1px;
+            padding-bottom: 1px;
+        }
+        nav > ul >li{
+            display: inline-block;
+            padding-right: 10px;
+            padding-left: 5px;
+        
+        }
+        nav > ul > li > a {
+            color: #fff;
+            text-decoration: none;
+        }
+        nav > ul >li:hover{
+            text-decoration: underline;
+        }
+        .board-main-menu{
+            position: relative   
+        }
+        
+        .board-sub-menu{
+            display: none;
+            position: absolute;
+            background-color: #555;
+            width: 70px;
+            
+        }
+        .board-sub-menu > a{
+            text-decoration: none;
+            color: #fff;
+            font-size: small;
+        }
+        .board-sub-menu > a:hover{
+            text-decoration: underline;
+        }
+        .board-main-menu:hover .board-sub-menu{
+            display: block;
+        }
+        /* main 태그 */
+        main{
+            background-color: #f2f2f2;
+        }
+        main > div{
+            box-shadow: 5px 5px 15px 5px rgb(198, 252, 240);
+            width: 96vw;
+            height: 600px;
+            margin-top: 25px;
+            margin-left: 25px;
+            border-radius: 10px;
+            padding-left: 20px;
+            padding-top: 20px;
+            background-color: white;
+        }
+        /* footer 태그 */
+        footer{
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+
+
+        
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>나의 홈페이지</h1>
+        <div>
+            <a href="./login.html" class="header-login">로그인</a>
+            <a href="./register.html">회원가입</a>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="./home.html">홈</a></li>
+            <li><a href="./introduce.html">소개</a></li>
+            <li><a href="./portfolio.html">포트폴리오</a></li>
+            <li class="board-main-menu"><a href="">게시판</a>
+                <div class="board-sub-menu">
+                    <a href="./free_board_enroll.html">공지사항</a>
+                    <a href="./free_board_list.html">자유게시판</a>
+                </div>
+            </li>
+            
+            <li><a href="./contact.html">연락하기</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div>
+            <h1>홈</h1>
+            <p>안녕하세요! 홈페이지에 오신 것을 환영합니다.</p>
+        </div>
+    </main>
+    <footer>
+        <h4>저의 홈페이지에 방문해 주셔서 감사합니다.</h4>
+    </footer>
+</body>
+</html>

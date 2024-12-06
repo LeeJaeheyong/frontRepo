@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+        <input type="text" id="input-id" placeholder="아이디를 입력해주세요">
+        <button onclick="idSubmit()">제출</button>
+        <div id="id-msg"></div>
+        <script>
+            function idSubmit(){
+                let inputId=document.getElementById("input-id").value;
+                let idMsg=document.getElementById("id-msg")
+                if(inputId===""){
+                    // alert("아이디를 입력해주세요!");
+                    idMsg.style.fontSize = "12px"
+                    idMsg.textContent="*아이디를 입력해주세요!";
+                    idMsg.style.color = "red";
+                } else if(inputId.length>=20){
+                    alert("아이디는 20자 미만으로 작성해주세요.")
+                }
+                console.log(inputId);
+            }
+        </script>
+<hr><br><br>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>나이</th>
+                </tr>
+            </thead>
+            <tbody id="input-tbody">
+                <!-- 여기에 추가 -->
+            </tbody>
+        </table>
+        <br>
+        <button id="table-add" onclick="tbodyAdd()">추가하기</button>
+        <script>
+            function tbodyAdd(){
+                let infoTbody = document.getElementById("input-tbody");
+                let infoTr = document.createElement("tr");
+                let infoName = document.createElement("td");
+                let infoAge = document.createElement("td");
+
+                //텍스트 노드 추가
+                infoName.textContent = "이재형";
+                infoAge.textContent = 19;
+
+                // tr 태그에 자식요소(td)추가
+                infoTr.appendChild(infoName);
+                infoTr.appendChild(infoAge);
+                infoTbody.appendChild(infoTr);
+            }
+        </script>
+        <br><br>
+        <hr>
+        <br><br>
+
+        <div id="text-example">
+            <strong>bold text</strong>
+            <span style="display: none">숨겨져있음</span>
+        </div>
+
+        <script>
+            const text1 = document.getElementById("text-example");
+            console.log(text1.textContent);
+            console.log(text1.innerHTML);
+            console.log(text1.innerText);
+        </script>
+        <input type="text" id="input-todo">
+        <ul id="ul-list">
+            <li>먹기</li>
+        </ul>
+
+        <button id="add-button" onclick="addList()"></button>
+
+        <script>
+            function addList(){
+                let todo = document.getElementById("input-todo").value;
+                let ullist=document.getElementById("ul-list");
+                let playing = document.createElement("li");
+                playing.textContent = todo;
+                ullist.appendChild(playing);
+            }
+        </script>
+</body>
+</html>
+

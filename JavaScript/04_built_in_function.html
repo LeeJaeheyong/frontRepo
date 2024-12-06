@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>문자열 관련 내장 함수</h3>
+    <ul>
+        <li>
+            toUpperCase() : 모든 문자를 대문자로 변환
+            <button onclick="uppercase()">대문자로 변환하기</button>
+            <script>
+                function uppercase(){
+                    const str = "Hello, World!";
+                    const upperCaseStr = str.toUpperCase();
+                    console.log(upperCaseStr);
+                }
+            </script>
+        </li>
+        <li>
+            toLowerCase() : 모든 문자를 소문자로 변환
+            <button onclick="lowercase()">소문자로 변환하기</button>
+            <script>
+                function lowercase(){
+                    const str = "Hello,World!";
+                    const lowerCaseStr = str.toLowerCase();
+                    console.log(lowerCaseStr);
+                }
+            </script>
+        </li>
+        <li>
+            length : 문자열의 길이를 반환(함수가 아닌 속성)
+            <button onclick="lengthCheck()">문자열 길이 확인하기</button>
+            <script>
+                function lengthCheck(){
+                    const str = "Hello, World!";
+                    console.log(str.length);
+                }
+            </script>
+        </li>
+        <li>
+            charAt(index) : 지정한 인덱스에 위치한 문자 변환
+            <button onclick="indexCheck()">문자 확인하기</button>
+            <script>
+                function indexCheck(){
+                    const str = "Hello, World!";
+                    const result = str.charAt(4);
+                    console.log(result);
+                }
+            </script>
+        </li>
+        <li>
+            indexOf("문자") : 지정한 문자가 처음으로 등장하는 인덱스 반환
+            <button onclick="indexOfCheck()">인덱스 확인하기</button>
+            <script>
+                function indexOfCheck(){
+                    const str = "Hello, World";
+                    const result = str.indexOf("ll");
+                    console.log(result);
+                }
+            </script>
+        </li>
+        <li>
+            includes("문자") : 특정 문자열이 포함되어 있는지 여부를 true/false 로 반환
+            <button onclick="includesCheck()">포함여부 확인하기</button>
+            <script>
+                function includesCheck(){
+                    const str = "Hello, World";
+                    const result = str.includes("ell");
+                    if(str==="Hello, World"){
+                        console.log("일치함");
+                    }
+                    console.log(result);
+                }
+            </script>
+        </li>
+        <li>
+            slice(시작인덱스, 끝인덱스) : 문자열 자르기
+            <button onclick="sliceCheck()">문자열 자르기</button>
+            <script>
+                function sliceCheck(){
+                    const str = "Hello, World";
+                    const result = str.slice(3,6);
+                    console.log(result);
+                }
+            </script>
+        </li>
+        <li>
+            split(구분자) : 문자열을 분할하여 배열로 반환
+            <button onclick="splitCheck()">배열로 반환하기</button>
+            <script>
+                function splitCheck(){
+                    const str = "Hello, World";
+                    const str2 = "apple-bass"
+                    const result = str.split(',');
+                    console.log(result);
+
+                    const result2 = str2.split('-');
+                    console.log(result2);
+                }
+            </script>
+        </li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greet User</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        아래의 조건에 만족하는 자바스크립트 코드를 완성하세요.
+
+        1. 사용자의 이름은 한글만 가능하고 2글자 이상이어야 합니다
+        2. 사용자의 이름은 비어있을 수 없습니다.
+        3. 위의 조건에 만족할 경우 "안녕하세요, OOO!" 을 출력합니다.
+        ※ 2초 뒤에 텍스트를 출력되며 이를 promise, async/await을 사용하여 구현하세요.
+        4. 이름이 비어있거나, 한글 또는 2글자 이상이 아닐 경우 "유효한 이름을 입력하세요"를 출력합니다.
+        
+    -->
+
+    <div class="container">
+        <h1>Greet User</h1>
+        <input type="text" id="nameInput" placeholder="이름을 입력하세요">
+        <button id="greetButton" onclick="solution()">인사하기</button>
+        <div id="result"></div>
+    </div>
+</body>
+</html>
+
+<script>
+    function Q1(){
+        let name = document.getElementById("nameInput").value;
+        let namePattern = /^[가-힣]{2,}$/
+        return new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                if(name!=="" &&namePattern.test(name)){
+                    resolve(`안녕하세요! ${name}님`)
+                } else{
+                    reject(`유효한 이름을 입력하세요`)
+                }
+            },2000)
+        })
+    }
+    async function solution() {
+        let result = document.getElementById("result")
+        try{
+            const q1 = await Q1();
+            result.textContent = q1
+        }
+        catch(err){
+            alert(err)
+        }
+    }
+    
+</script>

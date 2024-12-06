@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let arr = ["a","b","c"];
+        arr.push(1,2);
+        console.log(arr);
+
+        console.log(arr.pop());
+        console.log(arr);
+
+        arr.forEach((item)=> console.log(item));
+        
+        arr.splice(1,0,"100","200","300");
+        console.log(arr);
+
+        let numbers = [1,7,8,5,4,6,2,3,9];
+        const ascending = numbers.sort((a,b)=> a-b); //오름차순   b-a  => 내림차순
+        console.log(ascending);
+    </script>
+</body>
+</html>

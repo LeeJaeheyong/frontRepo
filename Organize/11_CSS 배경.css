@@ -1,0 +1,17 @@
+.background{
+    width: 1000px;
+    height: 1000px;
+    border: 1px solid lightblue;
+
+    /* 배경 색상 */
+    background-color: lightcyan;
+
+    /* 배경 이미지 삽입 */
+    background-image: url("../HTML/dog.jpg");
+
+    background-repeat: round;
+
+    background-position: 100px 200px;
+
+    background-attachment: fixed;
+}

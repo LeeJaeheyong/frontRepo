@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: aquamarine;
+            animation-name: grow;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-iteration-count: 3;
+        }
+        @keyframes grow {
+            0%{
+                transform: scale(1);
+                background-color: aquamarine;
+            }
+            50%{
+                transform: scale(2);
+                background-color: red;
+            }
+            100%{
+                transform: scale(3);
+                background-color: blue;
+            }
+            
+        }
+        .box2{
+            width: 300px;
+            height: 300px;
+            background-color: magenta;
+            animation-name: late;
+            animation-duration: 3s;
+            animation-timing-function: ease-out;
+        }
+        @keyframes late {
+            0%{
+                transform: translateX(0);
+                opacity: 1;
+            }
+            50%{
+                transform: translateX(1000px);
+                opacity: 0.5;
+            }
+            100%{
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        </style>
+</head>
+<body>
+    <div class="box"></div>
+    <hr>
+    <div class="box2"></div>
+</body>
+</html>

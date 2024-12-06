@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1.사용자 입력 받는 부분은 매개변수로 처리
+        2. 출력하는건 alert으로 작성
+        3. 문제별로 "확인"버튼 클릭해서 함수가 호출되도록(onclick)
+    -->
+<ol>
+    <li>
+        나이 계산기 : 
+        <button onclick="alert('사용자의 나이는 '+ageCalc(1995)+'입니다')">나이 Check</button>
+    </li>
+    <li>
+        데이터 타입 확인 :
+        <button onclick="alert('데이터의 타입은 '+datatype(true)+'입니다')">데이터 Check</button>
+    </li>
+    <li>
+        평균 계산기 :
+        <button onclick="alert('두 수의 평균은 '+averageCalc(5,3)+'입니다')">평균 Check</button>
+    </li>
+    <li>
+        성인 확인 :
+        <button onclick="alert('사용자의 나이는 '+ageCheck(29))">나이 Check</button>
+    </li>
+    <li>
+        큰수 확인 :
+        <button onclick="alert('두 수중에 큰 수는 '+compare(8,5)+'입니다')">큰수 Check</button>
+    </li>
+    <li>
+        홀짝 확인 : 
+        <button onclick="alert('홀짝 확인 : '+hol(34))">홀짝 Check</button>
+    </li>
+    <li>
+        구구단 확인 : 
+        <button onclick="googoo(2)">구구단 Check</button>
+    </li>
+    <li>
+        1부터 N까지의 합 : 
+        <button onclick="alert('1부터 입력한 수까지의 합은 '+sum(10)+'입니다')">총합 Check</button>
+    </li>
+    <li>
+        사칙연산 :
+        <button onclick="clat(3,5,'*')()">사칙연산 Check</button>
+    </li>
+    <li>
+        인사말 출력 :
+        <button onclick="hello('이재형')">인사 Check</button>
+    </li>
+    <li>
+        이름에 따른 인사말 출력 : 
+        <button onclick="generateMessage('BK')">인사말 출력</button>
+    </li>
+    <li>
+        대문자로 변환 :
+        <button onclick="upper('asdf')">대문자로 변환</button>
+    </li>
+    <li>
+        문자열 길이 확인 : 
+        <button onclick="alert('문자열의 길이는 '+lengthCheck('ajajsdndj')+'개 입니다')">길이 확인</button>
+    </li>
+    <li>
+        랜덤 숫자 생성 : 
+        <button onclick="alert(generateRandom())">랜덤 숫자 생성</button>
+    </li>
+    <li>
+        반올림 출력 :
+        <button onclick="alert(round(123.2515))">반올림 실행</button>
+    </li>
+</ol>
+
+</body>
+</html>
+
+<script>
+    function ageCalc(num){
+        let result = 2024-num;
+        return result;
+    }
+
+    function datatype(data){
+        let result = typeof data;
+        return result;
+    }
+    function averageCalc(num1,num2){
+        let result = (num1+num2)/2
+        return result;
+    }
+    function ageCheck(num){
+        let result;
+        if(num<19){
+            result = "미성년자 입니다!";
+        } else {
+            result = "성인입니다!";
+        }
+        return result;
+    }
+    function compare(num1,num2){
+        let result;
+        if(num1>num2){
+            result = num1;
+        } else {
+            result = num2;
+        }
+        return result;
+    }
+
+    function hol(num){
+        let result;
+        if(num%2==0){
+            result = "짝수입니다";
+        } else{
+            result = "홀수입니다";
+        }
+        return result;
+    }
+    function googoo(num){
+        let result = "";
+        let cnt = 1;
+            while(cnt<10){
+                result += (num*cnt)+"\n";
+                cnt++;
+            }
+            alert(result);
+    }
+    function sum(num){
+        let result=0;
+        for(let i=1; i<=num; i++){
+            result += i;
+        }
+        return result;
+    }
+    let clat = function(num1,num2,operation){
+        let result;
+        return function() {
+            switch(operation){
+                case "+" :
+                    alert(num1+num2);
+                    break;
+                case "-" :
+                    alert(num1-num2);
+                    break;
+                case "*" :
+                    alert(num1*num2);
+                    break;
+                case "/" :
+                    alert(num1/num2);
+                    break;
+            }
+        }   
+    }
+    let hello = (name) => {
+        alert("안녕하세요! "+name+"님")
+    }
+    function generateMessage(name){
+        if(name==="Alice"){
+            alert("Welcome Back, Alice!");
+        } else if (name==="Bob"){
+            alert("Good to see you, Bob!");
+        }else{
+            alert("Hello, "+name+"!");
+        }
+    }
+    function upper(str){
+        let result=str.toUpperCase(); 
+        alert(result);
+    }
+    function lengthCheck(str){
+        let result = str.length;
+        return result;
+    }
+    function generateRandom(){
+        let result = Math.ceil(Math.random()*100)-1;
+        return result;
+    }
+    function round(num){
+        let result = Math.round(num);
+        return result;
+    }
+</script>

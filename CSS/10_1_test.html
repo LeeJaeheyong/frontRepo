@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            background-color: blue;
+        }
+        div{
+            height: 100px;
+            width: 100px;
+            background-color: blanchedalmond;
+            border-radius: 100px;
+            position: absolute;
+            bottom: 0;
+            margin-left: 900px;
+            animation-name: bounce;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes bounce{
+            0%{
+                transform: translateY(0);
+            }
+            50%{
+                transform: translateY(-500px);
+            }
+            100%{
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

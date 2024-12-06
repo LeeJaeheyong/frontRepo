@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div:not(.items){
+            width: 100px;
+            height: 300px;
+            background-color: wheat;
+            /* transition-property: width, background-color;
+            transition-timing-function: ease;
+            transition-duration: 5s; */
+            /* transition-delay: 2s; */
+        }
+        div:hover{
+            width: 500px;
+            background-color: red;
+        }
+        .items:hover > div{
+            width: 500px;
+            background-color: red;
+        }
+        #item-1{
+            /* property duration timing-function */
+            transition: all 5s linear;
+        }
+        #item-2{
+            transition: all 5s ease;
+        }
+        #item-3{
+            transition: all 5s ease-in;
+        }
+        #item-4{
+            transition: all 5s ease-out;
+        }
+        #item-5{
+            transition: all 5s ease-in-out;
+        }
+        #trans-late:active{
+            transform: translate(30px, 30px);
+        }
+        #trans-x:active{
+            transform: translateX(50px);
+        }
+        #trans-y:active{
+            transform: perspective(80px) translateZ(50px);
+        }
+        #scale:active{
+            transform: scale(5);
+        }
+        #skew:active{
+            /* transform: skew(30deg, 30deg); */
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+
+    <hr>
+    <div class="items">
+        <h3>linear : 시작과 끝이 동일한 속도</h3>
+        <div id="item-1"></div>
+
+        <h3>ease : (기본값) 처음은 느리게, 끝으로 갈수록 빠르게</h3>
+        <div id="item-2"></div>
+
+        <h3>ease-in : 점점 빠르게</h3>
+        <div id="item-3"></div>
+
+        <h3>ease-out : 점점 느리게</h3>
+        <div id="item-4"></div>
+
+        <h3>ease-in-out : 초반 느리고,중간 가장빠르게, 끝은 느리게</h3>
+        <div id="item-5"></div>
+    </div>
+
+    <img id="trans-late" src="../HTML/dog.jpg" alt=""><br>
+    <img id="trans-x" src="../HTML/dog.jpg" alt=""><br>
+    <img id="trans-y" src="../HTML/dog.jpg" alt=""><br>
+    <img id="scale" src="../HTML/dog.jpg" alt=""><br>
+    <img id="skew" src="../HTML/dog.jpg" alt=""><br>
+</body>
+</html>

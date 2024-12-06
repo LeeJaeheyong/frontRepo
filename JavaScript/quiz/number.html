@@ -1,0 +1,134 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>숫자 맞추기 게임</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f5f5f5;
+    }
+
+    .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        margin: 50px auto;
+        max-width: 300px;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    input[type="number"] {
+        width: 100px;
+        padding: 5px;
+        font-size: 16px;
+    }
+
+    button {
+        padding: 5px 10px;
+        font-size: 16px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor:unset;
+    }
+
+    button:hover {
+        background-color: #2980b9;
+    }
+
+    #message {
+            font-weight: bold;
+            color: #e74c3c;
+    }
+
+    #resetGuess {
+            display: none;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>숫자 맞추기 게임</h1>
+        <p>1부터 100 사이의 숫자를 맞춰보세요.</p>
+        <input type="text" id="guessInput">
+        <button id="submitGuess" onclick="Q1()">제출</button>
+        <p id="message"></p>
+        <button id="resetGuess" onclick="Q2()">다시하기</button>
+    </div>
+</body>
+</html>
+<script>
+        // <문제 설명>
+        // 1. 1~100 숫자를 랜덤으로 생성합니다.
+        // 2. 사용자가 `제출` 버튼 클릭 시 아래와 같이 동작합니다.
+        //     2-1. 엔터를 눌러도 `제출` 버튼이 클릭됩니다.
+        //     2-2. p 태그에 두구두구가 출력됩니다. (0.5초마다 .이 하나씩 붙음, 총 2초)
+        //         0초 : 두구두구
+        //         0.5초 : 두구두구.
+        //         1초 : 두구두구..
+        //         1.5초 : 두구두구...
+        //         2초 : 두구두구....
+        //     2-3. 랜덤으로 생성한 숫자와 사용자가 입력한 숫자를 비교합니다.
+        //     2-4. 사용자가 입력한 값이 숫자가 아닐 경우 : (빨간색) "숫자만 입력 가능합니다."를 p태그에 출력
+        //     2-5. 입력한 숫자가 0보다 작을 경우 : (빨간색) "0이상의 숫자를 입력하세요."를 p태그에 출력
+        //     2-6. 입력한 숫자가 100보다 클 경우 : (빨간색) "100이하의 숫자를 입력하세요."를 p태그에 출력
+        //     2-7. 사용자가 입력한 숫자가 더 작을 경우 : (빨간색) "숫자가 너무 작습니다. 다시 시도하세요."를 p태그에 출력
+        //     2-8. 사용자가 입력한 숫자가 더 클 경우 : (빨간색) "숫자가 너무 큽니다. 다시 시도하세요."를 p태그에  출력
+        //     2-9. 숫자를 맞췃을 경우 : (파란색) "축하합니다! O번째 시도에 숫자를 맞추셨습니다."를 p태그에  출력
+        // 3. 숫자를 맞췃을 경우 "다시하기" 버튼이 보여집니다.
+        //     3-1. 다시하기 버튼 클릭 시 페이지가 새로고침 됩니다.
+        //     3-2. 새로고침은 location.reload()를 활용하세요.
+        let num = Math.floor(Math.random()*100);
+        let cnt = 0;
+    function Q1(){
+        let ans = document.getElementById("guessInput").value;
+        let ansPattern = /[0-9]/
+        let reset = document.getElementById("resetGuess")
+        let print = document.getElementById("message")
+        let sub = document.getElementById("submitGuess")
+        let rep = "두구두구"
+        console.log(num)
+
+        if(ansPattern.test(ans)){
+            if(ans<0){
+                print.textContent = "0이상의 숫자를 입력하세요"
+            } else if(ans>100){
+                print.textContent = "100이하의 숫자를 입력하세요"
+            } else {
+                let dogo = setInterval(()=>{
+                    print.textContent = rep
+                    rep = rep+"."
+                },500)
+                setTimeout(()=>{
+                    clearInterval(dogo);
+                    if(ans>num){
+                        print.textContent = "숫자가 너무 큽니다. 다시 시도하세요."
+                    } else if(ans<num){
+                        print.textContent = "숫자가 너무 작습니다. 다시 시도하세요."
+                    } 
+                    if(ans==num){
+                        print.style.color = "blue"
+                        print.textContent = `축하합니다! ${cnt}번째 시도에 맞추셨습니다.`
+                        reset.style.display = "block"
+                    } 
+                },2500)
+        }
+        cnt++;
+        } else{
+            print.textContent = "숫자만 입력 가능합니다."
+        }
+    }
+    function Q2(){
+        location.reload();
+    }
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="click-event-listener">클릭 이벤트 - 이벤트 리스너</button>
+    <span id="click-event-listener-msg"></span>
+
+    <script>
+        const event = document.getElementById("click-event-listener");
+        const clickEventListenerMsg = document.getElementById("click-event-listener-msg");
+        event.addEventListener('click',function(){
+                clickEventListenerMsg.textContent = "버튼이 클릭되었습니다.";
+        });
+    </script>
+
+    <hr>
+    <button id="dbclick-event">더블클릭 이벤트</button>
+    <span id="dbclick-msg"></span>
+    <script>
+        const dbclickEvent = document.getElementById("dbclick-event");
+        const dbclickMsg = document.getElementById("dbclick-msg");
+        dbclickEvent.addEventListener('dblclick',function(){
+            dbclickMsg.textContent = "더블클릭 되었습니다.";
+        })
+    </script>
+
+    <hr>
+    <div id="contextmenu-event" style="width: 300px; height: 300px; border: 1px solid aquamarine;"></div>
+    <button></button>
+    <span></span>
+    <script>
+        const contextmenuEvent = document.getElementById("contextmenu-event");
+
+        contextmenuEvent.addEventListener('contextmenu',function(){
+            alert("우클릭 금지");
+            event.preventDefault;
+        })
+    </script>
+</body>
+</html>

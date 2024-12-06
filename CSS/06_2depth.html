@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav{
+            background-color: #555;
+        }
+        nav > ul > li {
+            display: inline-block;
+            padding-right: 10px;
+        }
+        .board-main-menu{
+            position: relative;
+            width: 80px;
+        }
+        .board-main-menu:hover .board-sub-menu {
+            display: block;
+        }
+        .board-sub-menu{
+            display: none;
+            position: absolute;
+        }
+        .board-sub-menu > a{
+            display: block;
+            background-color: #555;
+        }
+        /* a태그 스타일링 */
+        a{
+            text-decoration: none;
+            color: #fff;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="board-main-menu">
+                <a href="">게시판</a>
+                <div class="board-sub-menu">
+                    <a href="">공지사항</a>
+                    <a href="">자유게시판</a>
+                </div>
+            </li>
+            <li>
+                <a href="">고객센터</a>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>

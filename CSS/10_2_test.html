@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            background-color: aquamarine;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+        }
+        
+        div{
+            height: 30px;
+            width: 30px;
+            background-color: blue;
+            border-radius: 100px;
+            margin-left: 20px;
+            margin-top: 450px;
+            animation-name: move1;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
+        /* .first{
+            animation-name: move1;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
+        .second{
+            animation-name: move2;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
+        .third{
+            animation-name: move3;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
+        .fourth{
+            animation-name: move4;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
+        .fifth{
+            animation-name: move5;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        } */
+
+        @keyframes move1{
+            0%{
+                scale: 1;
+                opacity: 1;
+                transform: translateX(0);
+            }
+            50%{
+                scale : 2;
+                opacity: 0;
+                margin-left: -35px;
+            }
+            
+        }
+        /* @keyframes move2{
+            0%{
+                transform: scale(1);
+                transform: translateX(0);
+                opacity: 1;
+            }
+            50%{
+                transform: scale(3);
+                transform: translateX(75px);
+                opacity: 0;
+            }
+            100%{
+                transform: scale(1);
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+        @keyframes move3{
+            0%{
+                transform: scale(1);
+                opacity: 1;
+            }
+            50%{
+                transform: scale(2);
+                opacity: 0;
+            }
+            100%{
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        @keyframes move4{
+            0%{
+                transform: scale(1);
+                transform: translateX(0);
+                opacity: 1;
+            }
+            50%{
+                transform: scale(2);
+                transform: translateX(-75px);
+                opacity: 0;
+            }
+            100%{
+                transform: scale(1);
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+        @keyframes move5{
+            0%{
+                transform: scale(1);
+                transform: translateX(0);
+                opacity: 1;
+            }
+            50%{
+                transform: scale(2);
+                transform: translateX(-150px);
+                opacity: 0;
+            }
+            100%{
+                transform: scale(1);
+                transform: translateX(0px);
+                opacity: 1;
+            } */
+        
+    </style>
+</head>
+<body>
+        <div class="first"></div>
+        <div class="second"></div>
+        <div class="third"></div>
+        <div class="fourth"></div>
+        <div class="fifth"></div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>box-1</div>
+    <div class="boxClass" name = "boxName">box-2</div>
+    <div class="boxClass">box-3</div>
+    <div id = "boxId" name = "boxName">box-4</div>
+
+    <script>
+    const getBoxId = document.getElementById("boxId"); //id는 중복불가
+    console.log(getBoxId);
+
+    const getBoxTag = document.getElementsByTagName("div");
+    console.log(getBoxTag);
+
+    for(let i=0;i<getBoxTag.length;i++){
+        console.log(getBoxTag[i]);
+    }
+        //배열 형태라서 인덱스가 필요하다
+    const getBoxClass = document.getElementsByClassName("boxClass");
+    console.log(getBoxClass);
+
+    const getBoxName=  document.getElementsByName("boxName");
+    console.log(getBoxName);
+
+    const selector =  document.querySelectorAll(".boxClass");
+    console.log(selector);
+
+    </script>
+
+    <div id="example">안녕하세요.</div>
+
+    <script>
+        const getExample = document.getElementById("example");
+        // getExample.textContent = "변경했습니다.";
+
+        getExample.innerHTML = "변경했습니다.";
+    </script>
+
+    <img src="../HTML/dog.jpg" alt="강아지" width="100px" height="100px" id="dog-image">
+    <script>
+        const getImg = document.getElementById("dog-image");
+        console.log(getImg);
+        getImg.width = "300";
+        // getImg.src = "없음";
+        getImg.alt= "강아지 사진입니다";
+        getImg.setAttribute("height","300");
+        document.getElementById("dog-image").setAttribute("height","500");  // 한번만 바꿀때 사용
+    </script>
+
+
+    <div id= "parent-div">
+        <p>First</p>
+        <p>Second</p>
+        Text Node
+    </div>
+
+    <script>
+        let parentDiv = document.getElementById("parent-div");
+        console.log(parentDiv.childNodes);
+        parentDiv.childNodes.forEach(node => {
+            console.log(node);
+        })
+    </script>
+
+    <ul id="ul-list">
+        <li>item 1</li>
+        <li>item 2</li>
+    </ul>
+
+    <script>
+        let ulList = document.getElementById("ul-list");
+
+        //1.li 요소 생성 : <li></li>
+        let newItem = document.createElement("li");
+
+        //2. 방금 만든 li 요소에 텍스트 노드 추가 : <li>new Item</li>
+        newItem.textContent = "new Item";
+
+        //3. ul 리스트의 자식 요소로 방금 만든 li 요소 추가
+        ulList.appendChild(newItem);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="../../HTML/dog.jpg" alt="" id="dog">
+    <!--
+        1.마우스가 이미지 안으로 드러가면 다른 이미지로 변경(암거나)
+        2.마우스가 이미지 밖으로 나가면 처음 이미지로 변경
+    -->
+        <script>
+            let imgSwitch = document.getElementById("dog");
+            imgSwitch.addEventListener('mouseover',function(){
+                dog.src = "../../HTML/스마트폰.jpg";
+            })
+            imgSwitch.addEventListener('mouseout',function(){
+                dog.src = "../../HTML/dog.jpg";
+            })
+        </script>
+
+        <hr>
+
+        <input type="text" name="" id="keyboard-input" onkeyup="keyupFunction()"><br>
+        <input type="text" name="" id="keyboard-input" onkeydown="keydownFunction(event)">
+        <button id="search-btn" onclick="btnClick()">검색</button><br>
+        <input type="text" name="" id="" oninput="inputFunction()">
+        <script>
+            function btnClick(){
+                alert("클릭됨");
+            }
+            function keyupFunction(){
+                console.log("키가 눌렸습니다.");
+            }
+
+            function keydownFunction(event){
+                console.log(event.keyCode)
+                console.log("키가 떨어졌습니다.");
+                if(event.keyCode===13){
+                    const searchBtn=document.getElementById("search-btn");
+                    searchBtn.click();
+                }
+            }
+            function inputFunction(){
+                
+                console.log("키가 눌렸을까.");
+            }
+        </script>
+        
+</body>
+</html>

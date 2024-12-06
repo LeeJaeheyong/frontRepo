@@ -1,0 +1,24 @@
+
+.plus{
+    color: red;
+}
+
+.minus{
+    color: blue;
+}
+
+thead {
+    background-color: rgb(75, 212, 247);
+}
+
+tbody{
+    background-color: azure;
+}
+a:hover{
+    cursor: wait;
+}
+
+table {
+    width: 1500px;
+    text-align: center;
+}

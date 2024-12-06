@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let students = [
+            {name : "Alice",score : 70},
+            {name : "Bob",score : 85},
+            {name : "David",score : 53}
+        ]
+        let addScored = students.map((student) => student.score+10);
+        let sum = addScored.reduce((total,addScored)=>total+addScored);
+        let filterd = students.filter((student)=>student.score>=70);
+        console.log(addScored)
+        console.log(sum)
+        console.log(filterd)
+
+    </script>
+    
+</body>
+</html>

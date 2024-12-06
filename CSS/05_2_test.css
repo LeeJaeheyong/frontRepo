@@ -1,0 +1,44 @@
+
+.div-main{
+    margin-left: 50px;
+    color: #5e636d;
+}
+
+li{
+    border-right: 2px solid black;
+    display: inline;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.li-personal{
+    font-weight: bold;
+}
+.li-last{
+    border: none;
+}
+.div-gmarket{
+    float: left;
+    height: 100px;
+}
+.div-center{
+    height: 100px;
+}
+.p-first{
+    float: left;
+}
+.p-legal{
+    float: right;
+}
+p{
+    margin: 1px;
+}
+h5{
+    margin-bottom: 5px;
+}
+pre{
+    font-size:large;
+}
+.span-tel{
+    color: blue;
+    font-style: italic;
+}

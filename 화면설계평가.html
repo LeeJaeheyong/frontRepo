@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+    <link rel="stylesheet" href="./화면설계평가.css">
+    
+</head>
+<body>
+    <div class="signup-container">
+        <div class="logo">
+            <!-- 쿠팡 로고 -->
+            <img src="./쿠팡로고.png" alt="">
+        </div>
+        <form class="signup-form">
+            <div class="form-group">
+                <!-- 아이디 -->
+                <label for="email">아이디</label>
+                <input type="email" id="email" maxlength="12" placeholder="아이디(이메일)" required>
+                </div>
+                <div class="form-group">
+                    <!-- 비밀번호 -->
+                    <label for="password">비밀번호</label>
+                    <input type="password" id="password" minlength="8" placeholder="비밀번호(8자 이상)" required>
+                </div>
+                <div class="form-group">
+                    <!-- 비밀번호 확인 -->
+                    <label for="confirm-password">비밀번호 확인</label>
+                    <input type="password" id="confirm-password" minlength="8" placeholder="비밀번호(8자 이상)" required>
+                </div>
+                <div class="form-group">
+                    <!-- 이름 -->
+                    <label for="name">이름</label>
+                    <input type="text" id="name" maxlength="10" placeholder="이름">
+                </div>
+                <div class="form-group">
+                    <!-- 핸드폰 번호 -->
+                    <label for="phone">휴대폰번호</label>
+                    <input type="tel" id="phone" placeholder="휴대폰 번호">
+            </div>
+            <!-- `동의하고 가입` 버튼 -->
+            <button class="submit-btn">동의하고 가입</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #Q2 {
+            width: 300px;
+            height: 300px;
+            background-color: lightgreen;
+        }
+        #Q7{
+            width: 300px;
+            height: 300px;
+           
+        }
+    </style>
+</head>
+<body>
+    <button onclick="Q1()">Click me!</button>
+
+    <div id="Q2" onmouseenter="Q2()" onmouseleave="leaveQ2()" > </div>
+
+    <input type="text" id="Q3">
+    <button onclick="Q3()">Submit</button>
+
+    <br><br>
+    <input type="text" id="Q4" onkeyup="Q4()">
+    <br><br>
+    <input type="text" name="" id="Q5" onkeyup="Q5()">
+    <div id="event">이벤트</div>
+    <button onclick="sizeQ5('16px')">기본</button>
+    <button onclick="sizeQ5('20px')">20px</button>
+    <button onclick="sizeQ5('50px')">50px</button>
+
+    <form action="" id="Q6">
+        <input type="text" id="name">
+        <input type="email" id="email" onfocus="Q6_change()">
+        <button id="btnQ6" onclick="Q6()">submit</button>
+    </form>
+    
+    <div onclick="Q7()" id="Q7" style="background-color: blue">    </div>
+    <img src="../../HTML/노트북.jpg" alt="노트북" id="Q8" onclick="Q8(event)">
+    <input type="text" id="textQ9">
+    <button id="btnQ9" onclick="Q9()">추가</button>
+    <ul id="Q9"></ul>
+    <fieldset>
+        <h3>전체선택버튼을 클릭하면 체크항목을 모두 체크하거나 모두 해제해주세요.</h3>
+        <input type="checkbox" name="leng" value="all" id="allChk" onclick="selectAll();"> 전체선택 <br>
+        <input type="checkbox" name="leng" value="java" onclick="updateSelectedValues();"> Java <br>
+        <input type="checkbox" name="leng" value="database" onclick="updateSelectedValues();"> DataBase <br>
+        <input type="checkbox" name="leng" value="web" onclick="updateSelectedValues();"> Web  
+    </fieldset>
+
+    <!-- 선택된 값을 출력할 div 태그 -->
+    <div id="selectedValuesDivTag"></div>
+    <script>
+        function selectAll(){
+            let lengBox = document.getElementsByName("leng")
+            let text = document.getElementById("selectedValuesDivTag")
+            let result = [];
+            let all = document.getElementById("allChk").checked;
+            // lengBox.forEach((box)=>{
+            //     box.checked = all;
+            // })
+            lengBox.forEach((box)=>{
+                box.checked = all;
+                if(box.checked && box.value!=="all"){
+                    result.push(box.value)
+                }
+            })
+            
+            text.textContent = result;
+        }
+        function updateSelectedValues(){
+            let text = document.getElementById("selectedValuesDivTag")
+            let lengBox = document.getElementsByName("leng")
+            let result = []
+            lengBox.forEach((box)=>{
+                if(box.checked){
+                    result.push(box.value)
+                }
+            })
+
+            // if(event.target.checked){
+            // result.push(event.target.value)
+            // }
+            text.textContent = result
+        }
+    </script>
+</body>
+</html>
+<script>
+function Q1(){
+    alert("버튼이 클릭되었습니다!");
+}
+function Q2(){
+    let color = document.getElementById("Q2")
+    color.style.backgroundColor = "yellow"
+}
+function leaveQ2(){
+    let color = document.getElementById("Q2")
+    color.style.backgroundColor = "lightgreen"
+}
+function Q3(){
+    let chk =document.getElementById("Q3").value;
+    if(chk===""){
+        alert("값이 없음")
+    } else {
+        alert("제출되었습니다!")
+    }
+}
+function Q4(){
+    let inp = document.getElementById("Q4").value;
+    console.log(inp)
+}
+function Q5(){
+    let inp = document.getElementById("Q5").value;
+    let outp = document.getElementById("event")
+    outp.textContent = inp;
+}
+function sizeQ5(size){
+    let outp = document.getElementById("event");
+    outp.style.fontSize = size;
+}
+
+function Q6_change(){
+    let email=document.getElementById("email")
+    email.style.backgroundColor = "yellow"
+}
+function Q6(){
+    let form = document.getElementById("Q6")
+    let email=document.getElementById("email")
+    let name = document.getElementById("name")
+    let print = document.createElement("div")
+    // print.textContent = `이름 : ${name}, 이메일 : ${email}`
+    form.textContent = `이름 : ${name.value}, 이메일 : ${email.value}`
+    // form.appendChild(print)
+}
+function Q7(){
+    let color = document.getElementById("Q7")
+    const red = Math.floor(Math.random() * 256);
+    const green = Math.floor(Math.random() * 256);
+    const blue = Math.floor(Math.random() * 256);
+    let result = `rgb(${red},${green},${blue})`
+    console.log(result)
+    color.style.backgroundColor = result
+}
+function Q8(event){
+    const x = event.clientX;
+    const y = event.clientY;
+    console.log(x)
+    console.log(y)
+    alert(`마우스 좌표 - X: ${x}, Y: ${y}`);
+}
+
+function Q9(){
+    let text = document.getElementById("textQ9")
+    let btn = document.getElementById("btnQ9")
+    let ul = document.getElementById("Q9")
+    let li = document.createElement("li")
+    ul.appendChild(li)
+    li.textContent = text.value
+}
+const q9 = document.getElementById("btnQ9")
+q9.addEventListener('keydown',Q9())
+
+</script>

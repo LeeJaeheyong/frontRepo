@@ -1,0 +1,55 @@
+body{
+    margin: 0;
+}
+/* 헤더 파트 */
+header{
+    background-color: black;
+    color: white;
+    text-align: center;
+
+}
+
+.header_h2{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 45px;
+    padding-bottom: 50px;
+}
+/* 네비 파트 */
+nav{
+    background-color: gray;
+
+
+}
+ul{
+    margin-top: 0;
+    padding: 10px;
+    font-weight: bold;
+}
+li{
+    display: inline;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+/* 메인 파트 */
+main{
+    width: 600px;
+    /* height: 683px; */
+    padding-left: 15px;
+}
+/* 푸터 파트 */
+footer{
+    position: absolute;
+    width: 100vw;
+    bottom: 0;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+.footer_h4{
+    margin-bottom: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

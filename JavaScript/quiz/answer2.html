@@ -1,0 +1,197 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>숫자 맞추기 게임</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f5f5f5;
+    }
+
+    .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        margin: 50px auto;
+        max-width: 300px;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    input[type="number"] {
+        width: 100px;
+        padding: 5px;
+        font-size: 16px;
+    }
+
+    button {
+        padding: 5px 10px;
+        font-size: 16px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor:unset;
+    }
+
+    button:hover {
+        background-color: #2980b9;
+    }
+
+    #message {
+            font-weight: bold;
+            color: #e74c3c;
+    }
+
+    #resetGuess {
+            display: none;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>숫자 맞추기 게임</h1>
+        <p>1부터 100 사이의 숫자를 맞춰보세요.</p>
+        시작 : <input type="number" id="startInput">
+        끝 : <input type="number" id="endInput">
+        <input type="number" id="guessInput">
+        <button id="submitGuess">제출</button>
+        <p id="message"></p>
+        <button id="resetGuess" onclick="reload();">다시하기</button>
+    </div>
+</body>
+</html>
+
+<script>
+    const elements = {
+        submitGuess: document.getElementById("submitGuess"),
+        resetGuess: document.getElementById("resetGuess"),
+        guessInput: document.getElementById("guessInput"),
+        message: document.getElementById("message"),
+        startInput: document.getElementById("startInput"),
+        endInput: document.getElementById("endInput"),
+    };
+
+    let randomNumber = 0;
+    let count = 0;
+    let isExecuting = false; // 중복 실행 방지 플래그
+
+    // 다시하기 버튼 클릭 시 새로고침
+    function reload() {
+        location.reload();
+    }
+
+    // 엔터 키 입력 시 버튼 클릭 이벤트 발생
+    elements.guessInput.addEventListener("keyup", (event) => {
+        if (event.key === "Enter") {
+            elements.submitGuess.click();
+        }
+    });
+
+    // 로딩 함수
+    function loading() {
+        return new Promise((resolve) => {
+            let dots = "";
+            const interval = setInterval(() => {
+                dots += ".";
+                elements.message.innerHTML = `두구두구${dots}`;
+                elements.message.style.color = "gray";
+
+                if (dots.length >= 4) {
+                    clearInterval(interval);
+                    resolve();
+                }
+            }, 500);
+        });
+    }
+
+    // 결과 출력
+    function displayResult(guess, randomNumber) {
+        count++;
+        if (parseInt(guess) === randomNumber) {
+            showMessage(
+                `축하합니다! ${count}번째 시도에 숫자를 맞추셨습니다.`,
+                "green"
+            );
+            endGame();
+        } else if (guess < randomNumber) {
+            showMessage("숫자가 너무 작습니다. 다시 시도하세요.", "#e74c3c");
+        } else {
+            showMessage("숫자가 너무 큽니다. 다시 시도하세요.", "#e74c3c");
+        }
+    }
+
+    // 메시지 표시
+    function showMessage(text, color) {
+        elements.message.textContent = text;
+        elements.message.style.color = color;
+    }
+
+    // 게임 종료 처리
+    function endGame() {
+        elements.guessInput.disabled = true;
+        elements.submitGuess.disabled = true;
+        elements.startInput.disabled = true;
+        elements.endInput.disabled = true;
+        elements.submitGuess.style.cursor = "unset";
+        elements.resetGuess.style.display = "block";
+    }
+
+    // 입력값 검증
+    function validateInputs(start, end, guess) {
+        if (isNaN(start) || isNaN(end) || isNaN(guess)) {
+            showMessage("숫자를 입력해주세요.", "#e74c3c");
+            return false;
+        }
+        if (start < 0) {
+            showMessage("시작 숫자가 0보다 작을 수 없습니다.", "#e74c3c");
+            return false;
+        }
+        if (guess < start) {
+            showMessage(`${start} 이상의 숫자를 입력하세요.`, "#e74c3c");
+            return false;
+        }
+        if (guess > end) {
+            showMessage(`${end} 이하의 숫자를 입력하세요.`, "#e74c3c");
+            return false;
+        }
+        return true;
+    }
+
+    // 게임 시작
+    async function startGame(start, end) {
+        const guess = parseInt(elements.guessInput.value);
+
+        if (!validateInputs(start, end, guess) || isExecuting) return;
+
+        isExecuting = true;
+        try {
+            await loading();
+            displayResult(guess, randomNumber);
+        } finally {
+            isExecuting = false;
+        }
+    }
+
+    // 버튼 클릭 이벤트
+    elements.submitGuess.addEventListener("click", () => {
+        const startInput = parseInt(elements.startInput.value);
+        const endInput = parseInt(elements.endInput.value);
+
+        if (randomNumber === 0) {
+            randomNumber = Math.floor(Math.random() * (endInput - startInput)) + startInput;
+            console.log(randomNumber)
+        }
+        startGame(startInput, endInput);
+    });
+</script>
+
+
